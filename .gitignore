@@ -28,3 +28,6 @@ proguard/
 
 #MacOSX files
 .DS_Store
+
+#Android Studio
+.idea
