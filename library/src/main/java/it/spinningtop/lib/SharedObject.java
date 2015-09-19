@@ -16,9 +16,7 @@
 
 package it.spinningtop.lib;
 
-/**
- * Created by Paolo Brandi on 29/08/15.
- */
+
 public class SharedObject {
 
     public SharedObject() {

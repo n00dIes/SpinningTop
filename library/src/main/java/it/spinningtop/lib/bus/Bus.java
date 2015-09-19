@@ -21,6 +21,8 @@ import it.spinningtop.lib.events.EventReceiver;
 
 /**
  * Base interface for a bus
+ *
+ * @author Paolo Brandi
  */
 public interface Bus {
 

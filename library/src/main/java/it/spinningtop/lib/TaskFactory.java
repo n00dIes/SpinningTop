@@ -16,21 +16,21 @@
 
 package it.spinningtop.lib;
 
-import android.content.Context;
-
 import it.spinningtop.lib.bus.Bus;
 import it.spinningtop.lib.exception.TaskCreationException;
 
 /**
- * Created by Paolo Brandi on 29/08/15.
+ * This class takes care of the creation of task instances using reflection.
+ *
+ * @author Paolo Brandi
  */
 public class TaskFactory {
 
-    public static Task<?,?> create(Context context, Request<?> request, Bus bus, TaskManager taskManager, SharedObject sharedObject) {
+    public static Task<?,?> create(Request<?> request, SharedObject sharedObject) {
         try {
             return (Task) Class.forName(request.getTaskName())
-                    .getConstructor(new Class[]{Context.class, Request.class, Bus.class, TaskManager.class, SharedObject.class})
-                    .newInstance(context, request, bus, taskManager, sharedObject);
+                    .getConstructor(new Class[]{Request.class, Bus.class, TaskManager.class, SharedObject.class})
+                    .newInstance(request, sharedObject);
         } catch (Exception e) {
             throw new TaskCreationException("Cannot create the task instance for this request " + request.toString() + ". " +
                     "Please check if the Task class exists or the request is valid.", e);

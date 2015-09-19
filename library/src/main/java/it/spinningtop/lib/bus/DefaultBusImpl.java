@@ -21,6 +21,13 @@ import de.greenrobot.event.EventBus;
 import it.spinningtop.lib.events.Event;
 import it.spinningtop.lib.events.EventReceiver;
 
+/**
+ * Default bus implementation based on GreenRobot EventBus
+ *
+ * @see <a href="https://github.com/greenrobot/EventBus">GreenRobot Eventbus</a>
+ *
+ * @author Paolo Brandi
+ */
 public class DefaultBusImpl implements Bus {
 
     private static DefaultBusImpl defaultBus;

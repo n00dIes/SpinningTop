@@ -16,7 +16,23 @@
 
 package it.spinningtop.lib;
 
-
+/**
+ * This class represents a request.
+ * A request describes uniquely an task instance with his own parameters.
+ *
+ * Two request starts two different task if one of the conditions below are true:
+ * - the task name is different
+ * - the task name is the same but with different parameters
+ * - the task name is the same with same parameters but the task is not running yet.
+ *
+ * It is possible to compare two request in order to know if they are equal or not. It can be useful
+ * when receiving different responses and we want to know if that response is that one
+ * we are actually waiting for.
+ *
+ * @param <DataInput> It is the type of the data we provide to the task.
+ *
+ * @author Paolo Brandi
+ */
 public class Request<DataInput> {
 
     private DataInput dataInput;

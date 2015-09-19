@@ -22,19 +22,29 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Paolo Brandi on 23/02/14.
+ * Default task executor for Spinning Top.
+ * It is possible to create your custom executor just implementing the {@link Executor} interface
+ * and providing your thread pool configuration
  *
  * @author Paolo Brandi
  */
 public class DefaultTaskExecutor implements Executor {
 
-    /** the number of threads to keep in the pool, even if they are idle **/
+    /**
+     * the number of threads to keep in the pool, even if they are idle
+     **/
     static final int CORE_POOL_SIZE = 5;
-    /** the maximum number of threads to allow in the pool **/
+    /**
+     * the maximum number of threads to allow in the pool
+     **/
     static final int MAX_POOL_SIZE = 10;
-    /** when the number of threads is greater than the core, this is the maximum time (in seconds) that excess idle threads will wait for new tasks before terminating **/
+    /**
+     * when the number of threads is greater than the core, this is the maximum time (in seconds) that excess idle threads will wait for new tasks before terminating
+     **/
     static final int KEEP_ALIVE_TIME = 60;
-    /** the maximum number of tasks to allow in the queue **/
+    /**
+     * the maximum number of tasks to allow in the queue
+     **/
     static final int MAX_QUEUE_SIZE = 300;
 
     private ThreadPoolExecutor thread_pool_executor;
@@ -46,7 +56,7 @@ public class DefaultTaskExecutor implements Executor {
 
 
     @Override
-    public void execute(Task<?,?> task) {
+    public void execute(Task<?, ?> task) {
         task.executeOnExecutor(thread_pool_executor);
     }
 

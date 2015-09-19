@@ -33,11 +33,12 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
+ * Simple implementation of an Android AsyncTask.
  *
  * @param <Params>
  * @param <Progress>
  * @param <Result>
- * @author Paolo Brandi
+ *
  */
 public abstract class AsyncTask<Params, Progress, Result> {
 

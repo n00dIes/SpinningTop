@@ -17,7 +17,7 @@
 package it.spinningtop.lib;
 
 /**
- * Spinning Top task exectuor
+ * Spinning Top task executor interface
  *
  * @author Paolo Brandi
  */

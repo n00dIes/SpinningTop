@@ -14,19 +14,16 @@
  * limitations under the License.
  */
 
-package it.spinningtop.lib;
+package it.spinningtop.lib.exception;
 
 /**
- * Created by Paolo Brandi on 21/06/14.
+ * RuntimException thrown when SpinningTop is not initialized properly
+ *
+ * @author Paolo Brandi
  */
-public abstract class Param {
+public class SpinningTopNotInitializedException extends RuntimeException {
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
+    public SpinningTopNotInitializedException(String detailMessage) {
+        super(detailMessage);
     }
-
-    @Override
-    public abstract boolean equals(Object o);
-
 }

@@ -17,7 +17,10 @@
 package it.spinningtop.lib.exception;
 
 /**
- * Created by Paolo Brandi on 10/09/14.
+ * RuntimException thrown when SpinningTop is not able to create a Task
+ * Usually it can happen if the class name does not exist or the
+ *
+ * @author Paolo Brandi
  */
 public class TaskCreationException extends RuntimeException {
 
