@@ -19,8 +19,11 @@ public class MainActivity extends ActionBarActivity implements EventReceiver {
     private static final String TAG = MainActivity.class.getName();
 
     private SpinningTop spinningTop;
+
     private TextView helloText;
     private ProgressBar progressBar;
+
+    private Request<Void> requestShort;
     private Request<Void> requestLong;
 
     @Override
@@ -95,15 +98,13 @@ public class MainActivity extends ActionBarActivity implements EventReceiver {
     public void onStartHelloTask(View v) {
         resetText();
         showProgress(true);
-        Request<Void> request = new Request<Void>(HelloSpinningTopTask.class);
-        spinningTop.submitRequest(request);
+        spinningTop.submitRequest(requestShort = new Request<Void>(HelloSpinningTopTask.class));
     }
 
     public void onStartLongTask(View v) {
         resetText();
         showProgress(true);
-        requestLong = new Request<Void>(LongHelloSpinningTopTask.class);
-        spinningTop.submitRequest(requestLong);
+        spinningTop.submitRequest(requestLong = new Request<Void>(LongHelloSpinningTopTask.class));
     }
 
     private void resetText() {
