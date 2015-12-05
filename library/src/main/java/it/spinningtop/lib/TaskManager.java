@@ -23,7 +23,7 @@ import java.util.Map;
 
 /**
  * This class takes care of managing tasks.
- * Provides methods to add, remove and search running tasks
+ * Provides methods to add, remove and search for running tasks
  *
  * @author Paolo Brandi
  */

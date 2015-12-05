@@ -17,8 +17,7 @@
 package it.spinningtop.lib;
 
 
-public class SharedObject {
+public interface SharedObject<Shared> {
 
-    public SharedObject() {
-    }
+    Shared getSharedObject();
 }

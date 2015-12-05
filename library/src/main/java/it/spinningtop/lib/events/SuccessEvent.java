@@ -17,7 +17,7 @@
 package it.spinningtop.lib.events;
 
 /**
- * Base class for events which wrapp a response
+ * Base class for events which wrap a response
  *
  * @author Paolo Brandi
  *

@@ -16,7 +16,6 @@
 
 package it.spinningtop.lib;
 
-import it.spinningtop.lib.bus.Bus;
 import it.spinningtop.lib.exception.TaskCreationException;
 
 /**
@@ -26,10 +25,10 @@ import it.spinningtop.lib.exception.TaskCreationException;
  */
 public class TaskFactory {
 
-    public static Task<?,?> create(Request<?> request, SharedObject sharedObject) {
+    public static Task<?,?> create(Request<?> request, SharedObject<?> sharedObject) {
         try {
             return (Task) Class.forName(request.getTaskName())
-                    .getConstructor(new Class[]{Request.class, Bus.class, TaskManager.class, SharedObject.class})
+                    .getConstructor(new Class[]{Request.class, SharedObject.class})
                     .newInstance(request, sharedObject);
         } catch (Exception e) {
             throw new TaskCreationException("Cannot create the task instance for this request " + request.toString() + ". " +

@@ -35,11 +35,11 @@ public abstract class Task<DataRequest, Result> extends AsyncTask<Void, Void, Re
 
     private SpinningTop spinningTop;
     private Request<DataRequest> request;
-    private SharedObject sharedObject;
+    private SharedObject<?> sharedObject;
 
     private Throwable throwable;
 
-    public Task(Request<DataRequest> request, SharedObject sharedObject) {
+    public Task(Request<DataRequest> request, SharedObject<?> sharedObject) {
         this.request = request;
         this.sharedObject = sharedObject;
         this.spinningTop = SpinningTop.getInstance();
@@ -55,7 +55,7 @@ public abstract class Task<DataRequest, Result> extends AsyncTask<Void, Void, Re
         return this.request;
     }
 
-    protected SharedObject getSharedObject() {
+    protected SharedObject<?> getSharedObject() {
         return sharedObject;
     }
 

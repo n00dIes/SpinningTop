@@ -40,7 +40,7 @@ public class SpinningTop {
     private TaskManager taskManager;
     private Executor executor;
     private Bus bus;
-    private SharedObject sharedObject;
+    private SharedObject<?> sharedObject;
 
     private static SpinningTop instance;
 
@@ -70,7 +70,7 @@ public class SpinningTop {
         return instance;
     }
 
-    private SpinningTop(Context context, Executor executor, Bus bus, SharedObject sharedObject) {
+    private SpinningTop(Context context, Executor executor, Bus bus, SharedObject<?> sharedObject) {
         this.context = context;
         this.taskManager = new TaskManager();
         this.executor = executor;
@@ -155,7 +155,7 @@ public class SpinningTop {
         private Context context;
         private Executor exectuor;
         private Bus bus;
-        private SharedObject sharedObject;
+        private SharedObject<?> sharedObject;
 
         public Builder(Context context) {
             this.context = context;
@@ -169,7 +169,7 @@ public class SpinningTop {
             this.bus = bus;
         }
 
-        public void setSharedObject(SharedObject sharedObject) {
+        public void setSharedObject(SharedObject<?> sharedObject) {
             this.sharedObject = sharedObject;
         }
 

@@ -29,11 +29,10 @@ public class MainActivity extends ActionBarActivity implements EventReceiver {
         setContentView(R.layout.activity_main);
         helloText = (TextView) findViewById(R.id.hello);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        showProgress(false);
 
         spinningTop = SpinningTop.getInstance();
 
-        if(savedInstanceState != null) {
+        if (savedInstanceState != null) {
             helloText.setText(savedInstanceState.getString("text"));
         }
     }
@@ -70,8 +69,8 @@ public class MainActivity extends ActionBarActivity implements EventReceiver {
         super.onResume();
 
         //check if LongHelloSpinningTopTask is running... show progress
-        //this is usefull when the activity come back from background
-       showProgress(spinningTop.isRequestRunning(requestLong));
+        //this is useful when the activity is re-created
+        showProgress(spinningTop.isRequestRunning(requestLong = new Request<Void>(LongHelloSpinningTopTask.class)));
 
     }
 
@@ -105,14 +104,15 @@ public class MainActivity extends ActionBarActivity implements EventReceiver {
         resetText();
         showProgress(true);
         requestLong = new Request<Void>(LongHelloSpinningTopTask.class);
-        spinningTop.submitRequest(requestLong);    }
+        spinningTop.submitRequest(requestLong);
+    }
 
     private void resetText() {
         helloText.setText(null);
     }
 
     private void showProgress(boolean show) {
-        if(show) {
+        if (show) {
             helloText.setVisibility(View.GONE);
             progressBar.setVisibility(View.VISIBLE);
         } else {
@@ -123,7 +123,11 @@ public class MainActivity extends ActionBarActivity implements EventReceiver {
 
     public void onQueryLongTask(View v) {
         boolean isRunning = spinningTop.isTaskRunning(LongHelloSpinningTopTask.class);
-        Toast.makeText(this, "The LongHelloSpinningTopTask is still running" , Toast.LENGTH_SHORT).show();
+        if (isRunning) {
+            Toast.makeText(this, "The LongHelloSpinningTopTask is still running", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "The LongHelloSpinningTopTask is not running", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void onEvent(HelloSuccess helloSuccess) {
