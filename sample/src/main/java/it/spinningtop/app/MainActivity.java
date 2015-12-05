@@ -69,7 +69,6 @@ public class MainActivity extends ActionBarActivity implements EventReceiver {
         super.onResume();
 
         //check if LongHelloSpinningTopTask is running... show progress
-        //this is useful when the activity is re-created
         showProgress(spinningTop.isRequestRunning(requestLong = new Request<Void>(LongHelloSpinningTopTask.class)));
 
     }

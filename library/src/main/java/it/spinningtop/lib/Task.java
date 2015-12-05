@@ -55,8 +55,8 @@ public abstract class Task<DataRequest, Result> extends AsyncTask<Void, Void, Re
         return this.request;
     }
 
-    protected SharedObject<?> getSharedObject() {
-        return sharedObject;
+    protected Object getSharedObject() {
+        return sharedObject != null ? sharedObject.getShared() : null;
     }
 
     protected Bus getBus() {

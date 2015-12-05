@@ -32,12 +32,12 @@ public class LongHelloSpinningTopTask extends Task<Void, String> {
 
     @Override
     public SuccessEvent<String> getSuccessEvent(String s) {
-        return new HelloSuccess(s);
+        return new HelloSuccess(getRequest(), s);
     }
 
     @Override
     public ExceptionEvent getExceptionEvent(Throwable throwable) {
-        return new HelloException(throwable);
+        return new HelloException(getRequest(), throwable);
     }
 
     @Override

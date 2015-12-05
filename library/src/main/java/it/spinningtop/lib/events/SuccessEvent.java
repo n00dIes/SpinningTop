@@ -16,6 +16,8 @@
 
 package it.spinningtop.lib.events;
 
+import it.spinningtop.lib.Request;
+
 /**
  * Base class for events which wrap a response
  *
@@ -24,10 +26,17 @@ package it.spinningtop.lib.events;
  */
 public class SuccessEvent<Result> implements Event {
 
+    private Request request;
     private Result result;
 
-    public SuccessEvent(Result result) {
+    public SuccessEvent(Request request, Result result) {
+        this.request = request;
         this.result = result;
+    }
+
+    @Override
+    public Request getRequest() {
+        return request;
     }
 
     public Result getResult() {

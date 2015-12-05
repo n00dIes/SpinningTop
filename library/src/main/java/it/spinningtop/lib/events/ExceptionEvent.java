@@ -16,6 +16,8 @@
 
 package it.spinningtop.lib.events;
 
+import it.spinningtop.lib.Request;
+
 /**
  * Base class for events which wrap an exception
  *
@@ -24,13 +26,21 @@ package it.spinningtop.lib.events;
  */
 public class ExceptionEvent implements Event {
 
+    private Request request;
     private Throwable throwable;
 
-    public ExceptionEvent(Throwable throwable) {
+    public ExceptionEvent(Request request, Throwable throwable) {
+        this.request = request;
         this.throwable = throwable;
+    }
+
+    @Override
+    public Request getRequest() {
+        return request;
     }
 
     public Throwable getThrowable() {
         return this.throwable;
     }
+
 }

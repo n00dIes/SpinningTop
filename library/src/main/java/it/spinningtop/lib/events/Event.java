@@ -16,11 +16,15 @@
 
 package it.spinningtop.lib.events;
 
+import it.spinningtop.lib.Request;
+
 /**
  * Base interface for Events
  *
  * @author Paolo Brandi
  */
 public interface Event {
+
+    public Request getRequest();
 
 }
