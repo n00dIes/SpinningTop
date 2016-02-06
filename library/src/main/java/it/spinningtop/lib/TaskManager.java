@@ -18,6 +18,7 @@ package it.spinningtop.lib;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -41,7 +42,7 @@ class TaskManager {
             String key = request.getTaskName();
             List<Request<?>> requests = map.get(key);
             if (requests == null) {
-                requests = new ArrayList<Request<?>>();
+                requests = new LinkedList<Request<?>>();
                 map.put(key, requests);
             }
             added = requests.add(request);
